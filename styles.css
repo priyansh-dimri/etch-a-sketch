@@ -18,26 +18,31 @@ body {
 }
 
 #game-area {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 5px;
+    
+    margin: 0 auto;
+    padding: 0.8vw;
+
     width: 40vw;
     height: 40vw;
+
     border: 2px solid black;
-    margin: 0 auto;
     border-radius: 10px;
-    padding: 0.8vw;
-    display: flex;
-    gap: 5px;
-    flex-wrap: wrap;
-    flex-direction: column;
 }
 
 .tile-row {
-    display: flex;
     flex: 1;
+    
+    display: flex;
     gap: 5px;
 }
 
 .tile {
+    flex: 1;
+    
     align-content: stretch;
     border: 1px solid black;
-    flex: 1;
 }
