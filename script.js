@@ -1,11 +1,42 @@
 const gameArea = document.querySelector('#game-area');
 const changeDimensionsButton = document.querySelector('#change-dimension-button');
 const resetButton = document.querySelector('#reset-button');
+const randomizeButton = document.querySelector('#randomize-button');
+
 let currentSquaresPerSide = 16;
+let randomize = false;
+
+function getRandomRGBValue() {
+    let randomRGBValuesList = [];
+
+    for(let i = 0; i < 3; ++i) {
+        let rgbValue = Math.floor(Math.random() * 256);
+        randomRGBValuesList.push(rgbValue);
+    }
+
+    return `rgb(${randomRGBValuesList[0]}, ${randomRGBValuesList[1]}, ${randomRGBValuesList[2]})`;
+}
 
 function clearGameArea() {
     while(gameArea.firstChild) {
         gameArea.removeChild(gameArea.firstChild);
+    }
+}
+
+function modifyTileBackgroundColor(tile) {
+    if(!tile.style.backgroundColor){
+        tile.style.backgroundColor = randomize ? getRandomRGBValue() : 'red';
+    }
+}
+
+function modifyTileOpacity(tile) {
+    let currentOpacity = parseFloat(tile.style.opacity);
+
+    if(isNaN(currentOpacity)) {
+        tile.style.opacity = 0.1;
+    }
+    else if(tile.style.opacity < 1.0){
+        tile.style.opacity = currentOpacity + 0.1;
     }
 }
 
@@ -17,18 +48,12 @@ function addTileRow(squaresPerSide) {
     for(let i = 0; i < squaresPerSide; ++i) {
         let tile = document.createElement('div');
         tile.classList.add('tile');
+        
         tile.addEventListener('mouseover', ()=>{
-            tile.style.backgroundColor = 'red';
-
-            let currentOpacity = parseFloat(tile.style.opacity);
-
-            if(isNaN(currentOpacity)) {
-                tile.style.opacity = 0.1;
-            }
-            else if(tile.style.opacity < 1.0){
-                tile.style.opacity = currentOpacity + 0.1;
-            }
+            modifyTileBackgroundColor(tile);
+            modifyTileOpacity(tile);
         })
+
         tileRow.appendChild(tile);
     }
 
@@ -56,6 +81,10 @@ changeDimensionsButton.addEventListener('click', ()=> {
 
 resetButton.addEventListener('click', ()=>{
     createSketchPad(currentSquaresPerSide);
+})
+
+randomizeButton.addEventListener('click', ()=>{
+    randomize = !randomize;
 })
 
 // Default 
