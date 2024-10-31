@@ -17,6 +17,9 @@ function addTileRow(squaresPerSide) {
     for(let i = 0; i < squaresPerSide; ++i) {
         let tile = document.createElement('div');
         tile.classList.add('tile');
+        tile.addEventListener('mouseover', ()=>{
+            tile.style.backgroundColor = 'red';
+        })
         tileRow.appendChild(tile);
     }
 
