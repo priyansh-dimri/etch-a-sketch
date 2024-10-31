@@ -1,14 +1,13 @@
-const gameArea = document.querySelector("#game-area");
-const changeDimensionsButton = document.querySelector(
-  "#change-dimension-button"
-);
-const resetButton = document.querySelector("#reset-button");
-const randomizeButton = document.querySelector("#randomize-button");
+const gameArea = document.querySelector("#game-area"),
+  changeDimensionsButton = document.querySelector("#change-dimension-button"),
+  resetButton = document.querySelector("#reset-button"),
+  randomizeButton = document.querySelector("#randomize-button");
 
-let currentSquaresPerSide = 16;
-let randomize = false;
+let currentSquaresPerSide = 16,
+  randomize = false;
 
-function getRandomRGBValue() {
+// Function to return a random rgb string
+function getRandomRGBString() {
   let randomRGBValuesList = [];
 
   for (let i = 0; i < 3; ++i) {
@@ -27,7 +26,7 @@ function clearGameArea() {
 
 function modifyTileBackgroundColor(tile) {
   if (!tile.style.backgroundColor) {
-    tile.style.backgroundColor = randomize ? getRandomRGBValue() : "red";
+    tile.style.backgroundColor = randomize ? getRandomRGBString() : "red";
   }
 }
 
@@ -91,5 +90,4 @@ randomizeButton.addEventListener("click", () => {
   randomize = !randomize;
 });
 
-// Default
 createSketchPad(currentSquaresPerSide);
