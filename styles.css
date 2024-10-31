@@ -16,3 +16,19 @@ body {
   font-weight: bold;
   margin: 2vh 1vh;
 }
+
+#game-area {
+    width: 40vw;
+    height: 40vw;
+    border: 2px solid black;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 0.8vw;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.sketch-tile {
+    border-radius: 10px;
+}
