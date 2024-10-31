@@ -18,48 +18,48 @@ body {
 }
 
 .button-container {
-    display: flex;
-    width: 50vw;
-    justify-content: center;
-    margin: 4vh auto;
-    gap: 1vw;
+  display: flex;
+  width: 50vw;
+  justify-content: center;
+  margin: 4vh auto;
+  gap: 1vw;
 }
 
 .game-button {
-    flex: 1;
-    padding: 1vh 4vh;
-    border: 2px solid black;
-    background-color: transparent;
-    border-radius: 10px;
+  flex: 1;
+  padding: 1vh 4vh;
+  border: 2px solid black;
+  background-color: transparent;
+  border-radius: 10px;
 }
 
 #game-area {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    
-    margin: 0 auto;
-    padding: 0.8vw;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 
-    width: 35vw;
-    height: 35vw;
+  margin: 0 auto;
+  padding: 0.8vw;
 
-    border: 2px solid black;
-    border-radius: 10px;
+  width: 35vw;
+  height: 35vw;
+
+  border: 2px solid black;
+  border-radius: 10px;
 }
 
 .tile-row {
-    flex: 1;
-    
-    display: flex;
+  flex: 1;
+
+  display: flex;
 }
 
 .tile {
-    flex: 1;
+  flex: 1;
 
-    align-content: stretch;
+  align-content: stretch;
 }
 
 .hovered-tile {
-    opacity: 0;
+  opacity: 0;
 }
