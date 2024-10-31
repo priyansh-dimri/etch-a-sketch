@@ -1,5 +1,10 @@
+const gameArea = document.querySelector('#game-area');
+const changeDimensionsButton = document.querySelector('#change-dimension-button');
+const resetButton = document.querySelector('#reset-button');
+let currentSquaresPerSide = 16;
+
 // Creates a row containing squaresPerSide div's of class 'tile'
-function addTileRow(gameArea, squaresPerSide) {
+function addTileRow(squaresPerSide) {
     const tileRow = document.createElement('div');
     tileRow.classList.add('tile-row');
 
@@ -14,12 +19,24 @@ function addTileRow(gameArea, squaresPerSide) {
 
 // Creates squaresPerSide X squaresPerSide grid using flex box elements.
 function createSketchPad(squaresPerSide) {
-    const gameArea = document.querySelector('#game-area');
+    if(squaresPerSide < 1 || squaresPerSide > 100) return;
+
+    currentSquaresPerSide = squaresPerSide;
 
     for(let i = 0; i < squaresPerSide; ++i) {
-        addTileRow(gameArea, squaresPerSide);
+        addTileRow(squaresPerSide);
     }
 }
 
+changeDimensionsButton.addEventListener('click', ()=> {
+    let squaresPerSide = prompt("Please enter the new dimension value of the grid(1 - 100)");
+
+    createSketchPad(squaresPerSide);
+})
+
+resetButton.addEventListener('click', ()=>{
+    createSketchPad(currentSquaresPerSide);
+})
+
 // Default 
-createSketchPad(16);
+createSketchPad(currentSquaresPerSide);
