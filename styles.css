@@ -27,8 +27,17 @@ body {
     display: flex;
     gap: 5px;
     flex-wrap: wrap;
+    flex-direction: column;
 }
 
-.sketch-tile {
-    border-radius: 10px;
+.tile-row {
+    display: flex;
+    flex: 1;
+    gap: 5px;
+}
+
+.tile {
+    align-content: stretch;
+    border: 1px solid black;
+    flex: 1;
 }
